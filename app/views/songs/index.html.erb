@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+<h1 align="center">Songs</h1>
+<h2 align="center"><%= current_user.try(:first_name) %></h2>
+<table border="2px" align="center", class="table table-dark">
+  <thead>
+    <tr>
+      <th><h3 align="center">Url</h3></th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    <% current_user.songs.each do |song| %>
+      <tr>
+        <%#= song.user_id %>
+        <%#= Song.find(@user_id).first_name %>
+        <td><%= song.url %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
