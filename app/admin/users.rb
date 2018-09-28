@@ -23,8 +23,9 @@ ActiveAdmin.register User do
       f.input :last_name
       f.input :date_of_birth 
       #f.input :gender
-      f.input :gender, :label => 'gender', :as => :select   
-
+      #f.input :gender, sellect: ["Male", "Female"]
+      f.input :gender, as: :select, collection: {'male': 1, 'Female': 2}, input_html: { required: true }
+ 
       f.input :address
       f.input :mob
     end

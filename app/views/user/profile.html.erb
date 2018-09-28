@@ -13,7 +13,13 @@
   <strong>Lastname:</strong>
   <%= current_user.last_name %><br><br>
   <strong>Gender:</strong>
-  <%= current_user.gender %><br><br>
+  <%#= gender(:gender, options_for_select([["Male", 1], ["Female", 2]], @user.try(:gender)) %>
+  <% if current_user.gender ==1 %>
+  male
+  <%else%>
+ female
+  <%end%>
+  <br><br>
   <strong>Date_of_birth:</strong>
   <%= current_user.date_of_birth %><br><br>
   <strong>Address:</strong>
