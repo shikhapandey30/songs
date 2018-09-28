@@ -1,0 +1,31 @@
+<html>
+<body><br><br>
+	
+<h1>My Profile </h1>
+ 
+<% if current_user.present? %>
+<hr> <strong>Username:</strong>
+    <%= current_user.username %><br><br>
+	 <strong>Email:</strong>
+	<%= current_user.email %><br><br>
+  <strong>Firstname:</strong>
+  <%= current_user.first_name %><br><br>
+  <strong>Lastname:</strong>
+  <%= current_user.last_name %><br><br>
+  <strong>Gender:</strong>
+  <%= current_user.gender %><br><br>
+  <strong>Date_of_birth:</strong>
+  <%= current_user.date_of_birth %><br><br>
+  <strong>Address:</strong>
+  <%= current_user.address %><br><br>
+  <strong>Mobile Number:</strong>
+  <%= current_user.mob %><br><br>
+    
+  <%end%>
+</ul>
+<%= link_to 'Edit my profile', edit_user_registration_path, class: "btn btn-success" %>
+<br>
+<!--<%= link_to 'Back', :back, class: "btn btn-success btn-lg" %>-->
+
+</body>
+</html>

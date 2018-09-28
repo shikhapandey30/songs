@@ -22,7 +22,9 @@ ActiveAdmin.register User do
       f.input :first_name
       f.input :last_name
       f.input :date_of_birth 
-      f.input :gender 
+      #f.input :gender
+      f.input :gender, :label => 'gender', :as => :select   
+
       f.input :address
       f.input :mob
     end

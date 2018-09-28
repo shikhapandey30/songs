@@ -1,4 +1,5 @@
 class SongsController < InheritedResources::Base
+	
 
   private
 
