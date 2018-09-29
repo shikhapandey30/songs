@@ -9,7 +9,8 @@ class User < ApplicationRecord
   # def user?
   # 	role.user == "user"
   # end
-  validates_presence_of :username
+  validates_presence_of :username, :gender
+  validates_uniqueness_of :username
   has_many :songs
 
   def email_required?

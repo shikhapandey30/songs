@@ -8,5 +8,13 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 	#root 'home#index'
 	root 'songs#index'
-	get 'user/profile'
+	get 'users/profile'
+	resource :users, only: [:edit] do
+  collection do
+    patch 'update_password'
+  end
+	
+	end
+	 get 'users/change' => "users#change"
+	 post 'user/change'
 end

@@ -59,6 +59,7 @@
               font-weight: bold;
           }
       </style>
+      
   </head> 
   <body>  
     <% @title="Sign In | epicureac" %>
@@ -68,39 +69,38 @@
           <h3 class="mb40">Login</h3>
         </div> 
         <div class="login-white-box">
-            <%= devise_error_messages! %>
-            <% flash.each do |key, value| %>
-              <% if(value != "Signed out successfully.") %>
-                <div class="flash alert alert-warning <%= key %>"><%= value %></div>
-              <% end%>
-            <% end %>
-            
-            <div class="form-group">
-              <%= f.label :username %><br />
-              <%= f.text_field :username, autofocus: true, autocomplete: "username" , class: 'form-control input-form-control',placeholder: 'username'%>
-            </div>
-            <div class="form-group">
-                                  
-              <%= f.label :password %><br />
-              <%= f.password_field :password, autocomplete: "current-password", class: 'form-control input-form-control',placeholder: 'Password'  %>
-            </div>
+          <%= devise_error_messages! %>
+          <% flash.each do |key, value| %>
+            <% if(value != "Signed out successfully.") %>
+              <div class="flash alert alert-warning <%= key %>"><%= value %></div>
+            <% end%>
+          <% end %>
+          
+          <div class="form-group">
+            <%= f.label :username %><br />
+            <%= f.text_field :username, autofocus: true, autocomplete: "username" , class: 'form-control input-form-control',placeholder: 'username'%>
+          </div>
+          <div class="form-group">
+                                
+            <%= f.label :password %><br />
+            <%= f.password_field :password, autocomplete: "current-password", class: 'form-control input-form-control',placeholder: 'Password'  %>
+          </div>
 
-            <% if devise_mapping.rememberable? %>
-              <div class="form-group">
-                <%= f.check_box :remember_me %>
-                <%= f.label :remember_me %>
-              </div>
-            <% end %>
-            
-            <div class="form-group row">
-                <div class="col-md-12">
-                    <div class="pull-left">
-                       <input type="hidden" name="existing_session_data" value="<%= session[:book].present? ? session[:book] : '' %>">
-                      <%= f.submit "Login",class: "btn btn-info btn-md" %>
-                     </div>
-                      
-                </div>
+          <% if devise_mapping.rememberable? %>
+            <div class="form-group">
+              <%= f.check_box :remember_me %>
+              <%= f.label :remember_me %>
             </div>
+          <% end %>
+          
+          <div class="form-group row">
+            <div class="col-md-12">
+              <div class="pull-left">
+                 <input type="hidden" name="existing_session_data" value="<%= session[:book].present? ? session[:book] : '' %>">
+                <%= f.submit "Login",class: "btn btn-info btn-md" %>
+              </div>
+            </div>
+          </div>
         </div>
       <% end %>
     </div>
