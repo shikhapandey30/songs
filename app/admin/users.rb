@@ -34,7 +34,7 @@ ActiveAdmin.register User do
   end
 
   show do
-    attributes_table :email, :username, :first_name, :last_name, :gender, :date_of_birth, :address, :mob
+    attributes_table :email, :username, :first_name, :last_name, :gender_display, :date_of_birth, :address, :mob
   end
 
 	form do |f|
@@ -47,7 +47,7 @@ ActiveAdmin.register User do
       f.input :date_of_birth 
       #f.input :gender
       #f.input :gender, sellect: ["Male", "Female"]
-      f.input :gender, as: :select, collection: {'male': 1, 'Female': 2}, input_html: { required: true }
+      f.input :gender, as: :select, collection: User::GENDER.invert, include_blank: false
  
       f.input :address
       f.input :mob

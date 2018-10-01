@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    
     <style type="text/css">
       .login-form {
         width: 340px;
@@ -31,6 +31,14 @@
     <% @title="Sign In | epicureac" %>
     <div class='container-fluid login bg-dark-grey login-form'>
       <%= form_for(@user, :url => { :action => "update_password" } ) do |form| %>
+
+        <% if @user.errors.any? %>
+          <ul>
+            <% @user.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
+        <% end %>
 
         <div class="form-group text-center">
           <h3 class="mb40">Change Password</h3>

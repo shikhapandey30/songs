@@ -1,37 +1,89 @@
-<html>
-<body><br><br>
-	
-<h1>My Profile </h1>
- 
-<% if current_user.present? %>
-<hr> <strong>Username:</strong>
-    <%= current_user.username %><br><br>
-	 <strong>Email:</strong>
-	<%= current_user.email %><br><br>
-  <strong>Firstname:</strong>
-  <%= current_user.first_name %><br><br>
-  <strong>Lastname:</strong>
-  <%= current_user.last_name %><br><br>
-  <strong>Gender:</strong>
-  <%#= gender(:gender, options_for_select([["Male", 1], ["Female", 2]], @user.try(:gender)) %>
-  <% if current_user.gender ==1 %>
-  male
-  <%else%>
- female
-  <%end%>
-  <br><br>
-  <strong>Date_of_birth:</strong>
-  <%= current_user.date_of_birth %><br><br>
-  <strong>Address:</strong>
-  <%= current_user.address %><br><br>
-  <strong>Mobile Number:</strong>
-  <%= current_user.mob %><br><br>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  </head> 
+  <body> 
     
-  <%end%>
-</ul>
-<%= link_to 'Edit my profile', edit_user_registration_path, class: "btn btn-success" %>
-<br>
-<!--<%= link_to 'Back', :back, class: "btn btn-success btn-lg" %>-->
+    <div class='container-fluid login bg-dark-grey login-form'>
+      <% if current_user.present? %>
+        <div class="form-group text-center">
+          <h2 class="mb40">My Profile</h2>
+        </div> 
+        <div class="login-white-box">
+          <%= devise_error_messages! %>
+          <% flash.each do |key, value| %>
+            <% if(value != "Signed out successfully.") %>
+              <div class="flash alert alert-warning <%= key %>"><%= value %></div>
+            <% end%>
+          <% end %>
+          <strong>Username</strong>
+          <div class="form-group form-control input-form-control'">
+            <%= current_user.username %>
+          </div>
 
-</body>
+          <strong>Email</strong>
+          <div class="form-group form-control input-form-control'">
+            <%= current_user.email %>
+          </div>
+
+          <strong>First Name</strong>
+          <div class="form-group form-control input-form-control'">
+            <%= current_user.first_name %>
+          </div>
+
+          <strong>Last Name</strong>
+          <div class="form-group form-control input-form-control'">
+            <%= current_user.last_name %>
+          </div>
+
+          <strong>Gender</strong>
+          <div class="form-group form-control input-form-control'">
+            <%= current_user.gender_display %>
+          </div>
+
+          <strong>Birthday</strong>
+          <div class="form-group form-control input-form-control'">
+            <%= current_user.date_of_birth %>
+          </div>
+
+          <strong>Address</strong>
+          <div class="form-group form-control input-form-control'">
+            <%= current_user.address %>
+          </div>
+
+          <strong>Phone Number</strong>
+          <div class="form-group form-control input-form-control'">
+            <%= current_user.mob %>
+          </div>
+          
+          
+        </div>
+      <% end %>
+      <%= link_to 'Edit my profile', edit_user_registration_path, class: "btn btn-success" %>
+      <%= link_to 'Back', :back, class: "btn btn-success btn-lg" %>
+    </div>
+  </body>
 </html>
+<style type="text/css">
+  .login-form {
+  width: 340px;
+    margin: 10px auto;
+  }
+  .login-form form {
+    margin-bottom: 15px;
+      background: #f7f7f7;
+      box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+      padding: 10px;
+  }
+  .login-form h2 {
+      margin: 0 0 15px;
+  }
+  .form-control, .btn {
+      min-height: 38px;
+      border-radius: 2px;
+  }
+  .btn {        
+      font-size: 25px;
+      font-weight: bold;
+  }
+</style>

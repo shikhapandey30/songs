@@ -9,12 +9,20 @@ class User < ApplicationRecord
   # def user?
   # 	role.user == "user"
   # end
-  validates_presence_of :username, :gender
+
+  GENDER = {1 => "Male", 2 => "Female"}
+
+  validates_presence_of :username
   validates_uniqueness_of :username
   has_many :songs
+  has_many :payments
 
   def email_required?
     false
+  end
+
+  def gender_display
+    User::GENDER[gender]
   end
 
 end

@@ -1,41 +1,10 @@
-<h2 align="center">Edit <%= resource_name.to_s.humanize %></h2>
-
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <style type="text/css">
-      .login-form {
-        width: 340px;
-          margin: 50px auto;
-      }
-        .login-form form {
-          margin-bottom: 15px;
-            background: #f7f7f7;
-            box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-            padding: 30px;
-        }
-        .login-form h2 {
-            margin: 0 0 15px;
-        }
-        .form-control, .btn {
-            min-height: 38px;
-            border-radius: 2px;
-        }
-        .btn {        
-            font-size: 15px;
-            font-weight: bold;
-        }
-    </style>
-  </head>
-
-  <body>  
-    <% @title="Sign In | epicureac" %>
-    <div class='container-fluid login bg-dark-grey login-form'>
+<div class='container-fluid login bg-dark-grey login-form'>
+  <div class="row">
+    <div class="col-md-4 col-md-offset-4">
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-      <%= devise_error_messages! %>
+        <%= devise_error_messages! %>
         <div class="form-group text-center">
-          <h3 class="mb40">Edit User Profile</h3>
+          <h2 class="mb40">Edit User Profile</h2>
         </div> 
         <div class="login-white-box">
           <%= devise_error_messages! %>
@@ -46,43 +15,41 @@
           <% end %>
           
           <div class="form-group">
-            <%= f.label :email %><br>
-            <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+            <%= f.label :email %>
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
           </div>
 
           <div class="form-group">
-                                
-            <%= f.label :firstname%><br>
-   
-             <%= f.text_area :first_name %>
+            <%= f.label :firstname%>
+            <%= f.text_field :first_name, class: "form-control" %>
           </div>
-
          
           <div class="form-group">
-             <%= f.label :lastname %><br>
-             <%= f.text_area :last_name %>
+            <%= f.label :lastname %>
+            <%= f.text_field :last_name, class: "form-control" %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :gender %>
+            <%= f.select :gender, User::GENDER.invert, {}, class: "form-control" %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :date_of_birth %>
+            <%= f.text_field :date_of_birth, class: "form-control", "data-provide": 'datepicker' %>
+          </div>
+
+           <div class="form-group">
+             <%= f.label :address %>
+             <%= f.text_area :address, class: "form-control" %>
           </div>
            <div class="form-group">
-             <%= f.label :gender %><br>
-              <%#= f.text_area :gender %>
-              <%= f.select :gender, options_for_select(["male", "female"], selected: :gender),  
-              :class=>'formSelect' %>
+             <%= f.label :mob %>
+             <%= f.text_field :mob, class: "form-control" %>
           </div>
            <div class="form-group">
-             <%= f.label :date_of_birth %><br>
-              <%= f.text_area :date_of_birth %>
-          </div>
-           <div class="form-group">
-             <%= f.label :address %><br>
-             <%= f.text_area :address %>
-          </div>
-           <div class="form-group">
-             <%= f.label :mob %><br>
-             <%= f.text_area :mob %>
-          </div>
-           <div class="form-group">
-             <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-            <%= f.password_field :current_password, autocomplete: "current-password" %>
+             <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i>
+            <%= f.password_field :current_password, autocomplete: "current-password", class: "form-control" %>
           </div>
           
           
@@ -90,12 +57,36 @@
             <div class="col-md-12">
               <div class="pull-left">
                  <input type="hidden" name="existing_session_data" value="<%= session[:book].present? ? session[:book] : '' %>">
-                 <%= f.submit "Update" %>
+                 <%= f.submit "Update", class: "btn btn-primary" %>
               </div>
             </div>
           </div>
         </div>
       <% end %>
     </div>
-  </body>
-</html>
+  </div>
+</div>
+
+
+<script type="text/javascript">
+  // $(document).ready(function(){
+  //   $("[data-provide='datepicker']").datepicker({
+  //     format: 'dd-mm-yyyy';
+  //   });
+  // });
+</script>
+ 
+
+<style type="text/css">
+      /*.login-form {
+        width: 400px;
+          margin: 50px auto;
+      }
+        .login-form form {
+          margin-bottom: 15px;
+            background: #f7f7f7;
+            box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+            padding: 80px;
+        }*/
+        
+</style>

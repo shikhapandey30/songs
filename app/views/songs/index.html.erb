@@ -1,129 +1,29 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Epicureac</title>
-    <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"/>
-    <style>
-      /* Stackoverflow preview fix, please ignore */
-      .navbar-nav {
-        flex-direction: row;
-      }
-      
-      .nav-link {
-        padding-right: .5rem !important;
-        padding-left: .5rem !important;
-        font-size: 20px;
-      }
-      
-      /* Fixes dropdown menus placed on the right side */
-      .ml-auto .dropdown-menu {
-        left: auto !important;
-        right: 0px;
-      }
-    </style>
-  </head>
-
-  <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary rounded">
-      <a class="navbar-brand" href="#"><a href="/" class="navbar-brand">
-        <%= image_tag "logo.png", height: 55 %>
-        </a>
-      </a>
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link"></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link"></a>
-        </li>
-      </ul>
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-          <a class="nav-link"></a>
-        </li>
-        <li class="nav-item dropdown">
-          
-          <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-          <% if user_signed_in? %>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"   aria-haspopup="true" aria-expanded="false">
-                      
-                  <% if current_user.present? %> 
-                  <%= current_user.first_name%>
-                  <%end%>
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item" href="#">
-                    <%= link_to 'Profile', users_profile_path %><br>
-                    <%= link_to 'Change Password', users_change_path %><br>
-
-                    <%= link_to('Logout', destroy_user_session_path, method: :delete)%>        
-                    <% else %>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                      <a class="dropdown-item" href="#">
-                      <%= link_to('Login', new_user_session_path)  %>  
-                      </a>
-                    </div>
-                  </a>
-                </div>
-              </li>
-            <% end %>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action with a lot of text inside of an item</a>
-          </div>
-        </li>
-      </ul>
-    </nav> 
-        <%= yield %>
-      
-    <style type="text/css">
-      body {
-      /*background-image: url("<%= asset_path("logos/hg.jpg")%>");*/
-       background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-            background-color:  #CACFD2;
-
-        background-attachment: fixed;
-        }
-    </style>
-    <p id="notice"><%= notice %></p>
-    <h2 align="center">Songs List</h2>
-    <h2 align="center">
-    </h2>
-    <div class="table-responsive">          
-      <table class="table">
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Song URL</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% current_user.songs.each do |song| %>
-            <tr>
-              <td><%= song.id %></td>
-              <td><%= link_to song.url, song.url %></td>
-              <td>test</td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
-    </div>
-  </body>
-</html>
+<p id="notice"><%= notice %></p>
+<h2 align="center">Songs List</h2>
+<h2 align="center">
+</h2>
+<div class="table-responsive">          
+  <table class="table">
+    <thead>
+      <tr class="info">
+        <th>#</th>
+        <th>Song URL</th>
+        <th>Plays</th>
+        <th>Likes</th>
+        <th>Reposts</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% current_user.songs.each_with_index do |song, index| %>
+        <tr>
+          <td><%= index + 1 %></td>
+          <td><%= link_to song.url, song.url %></td>
+          <td><%= song.song_detail.plays_count %></td>
+          <td><%= song.song_detail.likes_count %></td>
+          <td><%= song.song_detail.reposts_count %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

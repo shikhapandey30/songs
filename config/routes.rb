@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :payments
   resources :songs
   get 'home/index'
 
@@ -17,4 +18,5 @@ Rails.application.routes.draw do
 	end
 	 get 'users/change' => "users#change"
 	 post 'user/change'
+   #get 'payments/index'=> "payments#index"
 end

@@ -7,8 +7,15 @@
 
 <p>
   <strong>Url:</strong>
-  <%= @song.url %>
+  <%= link_to @song.url, @song.url %>
 </p>
-
-<%= link_to 'Edit', edit_song_path(@song) %> |
+<p>
+  <strong>Plays:</strong>
+<%= @plays_count %>
+</p>
+<p>
+  <strong>Likes:</strong>
+<%= @likes_count %>
+</p>
+<%#= link_to 'Edit', edit_song_path(@song) %> 
 <%= link_to 'Back', songs_path %>

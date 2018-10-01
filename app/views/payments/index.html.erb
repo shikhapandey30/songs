@@ -1,0 +1,31 @@
+<h2 align="center">Payment Status</h2>
+<div class="table-responsive">          
+  <table class="table">
+    <thead>
+      <tr class="info">
+        <th>#</th>
+        <th>Amount</th>
+        <th>Payment Date</th>
+
+        <th>Due date</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% current_user.payments.each do |payment| %>
+        <tr>
+          <td><%= payment.id %></td>
+          <td><%= payment.amount %></td>
+          <td><%= payment.payment_date %></td>
+          <td><%= payment.due_date %></td>
+          <td>
+            <% if payment.status == 1 %>
+            due
+            <%else%>
+            paid
+            <%end%>
+          </td>
+    <% end %>
+    </tbody>
+  </table>
+</div>
