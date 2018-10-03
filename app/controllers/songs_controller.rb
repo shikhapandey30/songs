@@ -8,7 +8,7 @@ class SongsController < InheritedResources::Base
   def index
   	@user = current_user
   	songs = @user.songs
-  	#@song = song.find_by(params[:id])
+  	#song = song.find_by(params[:id])
   	# songs.each do |song|
   	# 	song_detail = SongDetail.find_or_initialize_by(song_id: song.id)
 	  # 	data = Nokogiri::HTML(open(song.url))
@@ -30,13 +30,7 @@ class SongsController < InheritedResources::Base
 
 
   	@likes_count = data.search("meta[property='soundcloud:like_count']")[0].attributes["content"].value
-
-   # if @song.url
-   # 	song = @song.url.update_attribute(:plays_count => params[:plays_count], :likes_count => [:likes_count], :reposts_count => [:reposts_count])
-   # else
-   # 	song = Song.create(:plays_count => [:plays_count], :likes_count => [:likes_count], :reposts_count => [:reposts_count])
-   # end
-  end
+	end
 	
 
   private

@@ -44,7 +44,7 @@ ActiveAdmin.register User do
       f.input :password      
       f.input :first_name
       f.input :last_name
-      f.input :date_of_birth 
+      f.input :date_of_birth
       #f.input :gender
       #f.input :gender, sellect: ["Male", "Female"]
       f.input :gender, as: :select, collection: User::GENDER.invert, include_blank: false
