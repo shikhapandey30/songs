@@ -14,6 +14,7 @@
 // require popper
 //= require bootstrap-sprockets
 //= require bootstrap-datepicker
+//= require dataTables/jquery.dataTables
 //= require rails-ujs
 //= require turbolinks
 // require_tree .

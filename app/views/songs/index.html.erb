@@ -4,7 +4,7 @@
 <h2 align="center">
 </h2>
 <div class="table-responsive">          
-  <table class="table">
+  <table class="table datatable">
     <thead>
       <tr class="info">
         <th>#</th>
@@ -19,11 +19,17 @@
         <tr>
           <td><%= index + 1 %></td>
           <td><%= link_to song.url, song.url %></td>
-          <td><%= song.song_detail.plays_count %></td>
-          <td><%= song.song_detail.likes_count %></td>
-          <td><%= song.song_detail.reposts_count %></td>
+          <td><%= song.song_detail.try(:plays_count) %></td>
+          <td><%= song.song_detail.try(:likes_count) %></td>
+          <td><%= song.song_detail.try(:reposts_count) %></td>
         </tr>
       <% end %>
     </tbody>
   </table>
 </div>
+<script type="text/javascript">
+  $('.datatable').DataTable({
+  // dom: "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>",
+  // pagingType: "bootstrap"
+  });
+</script>

@@ -60,3 +60,4 @@ gem 'jquery-rails'
 gem "nokogiri"
 gem "pry"
 gem 'bootstrap-datepicker-rails'
+gem 'jquery-datatables-rails', '~> 3.4.0'

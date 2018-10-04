@@ -16,7 +16,7 @@ ActiveAdmin.register Payment do
  form do |form|
 	   form.inputs do
 	   
-	   form.input :user_id, :label => 'User', :as => :select, :collection => User.all.map{|u| ["#{u.first_name}", u.id]}   
+	 form.input :user_id, :label => 'User', :as => :select, :collection => User.all.map{|u| ["#{u.first_name}", u.id]}, include_blank:false   
      form.input :amount, :label => 'Amount'
      form.input :payment_date, :label => 'Payment date'
      form.input :due_date, :label => 'Due date'

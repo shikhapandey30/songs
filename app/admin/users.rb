@@ -1,6 +1,6 @@
 ActiveAdmin.register User do
   remove_filter :reset_password_token
-	permit_params :email, :username, :first_name, :last_name, :date_of_birth, :password, :mob, :gender, :address
+  permit_params :email, :username, :first_name, :last_name, :date_of_birth, :password, :mob, :gender, :address
 	
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
@@ -44,7 +44,8 @@ ActiveAdmin.register User do
       f.input :password      
       f.input :first_name
       f.input :last_name
-      f.input :date_of_birth
+      f.input :date_of_birth, start_year: Date.today.year - 100
+
       #f.input :gender
       #f.input :gender, sellect: ["Male", "Female"]
       f.input :gender, as: :select, collection: User::GENDER.invert, include_blank: false

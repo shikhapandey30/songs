@@ -12,9 +12,9 @@
       </tr>
     </thead>
     <tbody>
-    <% current_user.payments.each do |payment| %>
+    <% current_user.payments.each_with_index do |payment, index| %>
         <tr>
-          <td><%= payment.id %></td>
+          <td><%#= payment.id %><%= index + 1 %></td>
           <td><%= payment.amount %></td>
           <td><%= payment.payment_date %></td>
           <td><%= payment.due_date %></td>
