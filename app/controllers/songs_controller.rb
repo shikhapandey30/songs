@@ -9,17 +9,17 @@ class SongsController < InheritedResources::Base
   	@user = current_user
   	songs = @user.songs
 
-  	# songs.each do |song|
-  	# 	song_detail = SongDetail.find_or_initialize_by(song_id: song.id)
-	  # 	data = Nokogiri::HTML(open(song.url))
-	  # 	plays_count = data.search("meta[property='soundcloud:play_count']")[0].attributes["content"].value
-	  # 	likes_count = data.search("meta[property='soundcloud:like_count']")[0].attributes["content"].value
-   #    reposts_count = data.to_s.split("reposts_count")[2].split(":")[1].split(",")[0] rescue nil
-	  # 	song_detail.plays_count = plays_count
-	  # 	song_detail.likes_count = likes_count
-   #    song_detail.reposts_count = reposts_count
-	  # 	song_detail.save
-  	# end
+  	songs.each do |song|
+  		song_detail = SongDetail.find_or_initialize_by(song_id: song.id)
+	  	data = Nokogiri::HTML(open(song.url))
+	  	plays_count = data.search("meta[property='soundcloud:play_count']")[0].attributes["content"].value
+	  	likes_count = data.search("meta[property='soundcloud:like_count']")[0].attributes["content"].value
+      reposts_count = data.to_s.split("reposts_count")[2].split(":")[1].split(",")[0] rescue nil
+	  	song_detail.plays_count = plays_count
+	  	song_detail.likes_count = likes_count
+      song_detail.reposts_count = reposts_count
+	  	song_detail.save
+  	end
     
   end
 
