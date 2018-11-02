@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  artist: MyString
+  assigned_to: MyString
+  promoted_by: MyString
+  target_plays: 1
+  status: 1
+  plays: 1
+  likes: 1
+  reposts: 1
+  comments: 1
+
+two:
+  artist: MyString
+  assigned_to: MyString
+  promoted_by: MyString
+  target_plays: 1
+  status: 1
+  plays: 1
+  likes: 1
+  reposts: 1
+  comments: 1

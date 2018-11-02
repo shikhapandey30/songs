@@ -1,0 +1,62 @@
+<%= form_with(model: campaign, local: true) do |form| %>
+  <% if campaign.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(campaign.errors.count, "error") %> prohibited this campaign from being saved:</h2>
+
+      <ul>
+      <% campaign.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :artist %>
+    <%= form.text_field :artist, id: :campaign_artist %>
+  </div>
+
+  <div class="field">
+    <%= form.label :assigned_to %>
+    <%= form.text_field :assigned_to, id: :campaign_assigned_to %>
+  </div>
+
+  <div class="field">
+    <%= form.label :promoted_by %>
+    <%= form.text_field :promoted_by, id: :campaign_promoted_by %>
+  </div>
+
+  <div class="field">
+    <%= form.label :target_plays %>
+    <%= form.number_field :target_plays, id: :campaign_target_plays %>
+  </div>
+
+  <div class="field">
+    <%= form.label :status %>
+    <%= form.number_field :status, id: :campaign_status %>
+  </div>
+
+  <div class="field">
+    <%= form.label :plays %>
+    <%= form.number_field :plays, id: :campaign_plays %>
+  </div>
+
+  <div class="field">
+    <%= form.label :likes %>
+    <%= form.number_field :likes, id: :campaign_likes %>
+  </div>
+
+  <div class="field">
+    <%= form.label :reposts %>
+    <%= form.number_field :reposts, id: :campaign_reposts %>
+  </div>
+
+  <div class="field">
+    <%= form.label :comments %>
+    <%= form.number_field :comments, id: :campaign_comments %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  index: 1
+  account_name: MyString
+  of_followers: 1
+  date_supported: 2018-11-01
+  period_of_repost: 1
+  contact_name: MyString
+
+two:
+  index: 1
+  account_name: MyString
+  of_followers: 1
+  date_supported: 2018-11-01
+  period_of_repost: 1
+  contact_name: MyString

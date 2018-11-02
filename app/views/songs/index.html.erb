@@ -4,9 +4,9 @@
 <h2 align="center">
 </h2>
 <div class="table-responsive">          
-  <table class="table datatable">
+  <table class="table datatable table-bordered">
     <thead>
-      <tr class="info">
+      <tr class="bg-primary">
         <th>#</th>
         <th>Song URL</th>
         <th>Plays</th>
@@ -17,7 +17,7 @@
     <tbody>
       <% current_user.songs.each_with_index do |song, index| %>
         <tr>
-          <td><%= index + 1 %></td>
+          <td class="bg-primary"><%= index + 1 %></td>
           <td><%= link_to song.url, song.url %></td>
           <td><%= song.song_detail.try(:plays_count) %></td>
           <td><%= song.song_detail.try(:likes_count) %></td>

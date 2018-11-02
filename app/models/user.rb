@@ -16,6 +16,7 @@ class User < ApplicationRecord
   validates_uniqueness_of :username
   has_many :songs
   has_many :payments
+  #has_many :campaigns
   validates :mob, :presence => {:message => 'number only 10 digit'},
                      :numericality => true,
                      :length => { :minimum => 10, :maximum => 10 }

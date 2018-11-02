@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181001082411) do
+ActiveRecord::Schema.define(version: 20181101110529) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,21 @@ ActiveRecord::Schema.define(version: 20181001082411) do
     t.index ["username"], name: "index_admin_users_on_username", unique: true
   end
 
+  create_table "campaigns", force: :cascade do |t|
+    t.string "artist"
+    t.string "assigned_to"
+    t.string "promoted_by"
+    t.integer "target_plays"
+    t.integer "status"
+    t.integer "plays"
+    t.integer "likes"
+    t.integer "reposts"
+    t.integer "comments"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
+  end
+
   create_table "payments", force: :cascade do |t|
     t.integer "user_id"
     t.decimal "amount"
@@ -66,6 +81,17 @@ ActiveRecord::Schema.define(version: 20181001082411) do
     t.string "url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "support_lists", force: :cascade do |t|
+    t.string "account_name"
+    t.integer "of_followers"
+    t.date "date_supported"
+    t.integer "period_of_repost"
+    t.string "contact_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "campaign_id"
   end
 
   create_table "users", force: :cascade do |t|

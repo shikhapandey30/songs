@@ -16,5 +16,5 @@
 //= require bootstrap-datepicker
 //= require dataTables/jquery.dataTables
 //= require rails-ujs
-//= require turbolinks
+// require turbolinks
 // require_tree .

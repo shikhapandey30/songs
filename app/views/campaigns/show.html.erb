@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Artist:</strong>
+  <%= @campaign.artist %>
+</p>
+
+<p>
+  <strong>Assigned to:</strong>
+  <%= @campaign.assigned_to %>
+</p>
+
+<p>
+  <strong>Promoted by:</strong>
+  <%= @campaign.promoted_by %>
+</p>
+
+<p>
+  <strong>Target plays:</strong>
+  <%= @campaign.target_plays %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @campaign.status %>
+</p>
+
+<p>
+  <strong>Plays:</strong>
+  <%= @campaign.plays %>
+</p>
+
+<p>
+  <strong>Likes:</strong>
+  <%= @campaign.likes %>
+</p>
+
+<p>
+  <strong>Reposts:</strong>
+  <%= @campaign.reposts %>
+</p>
+
+<p>
+  <strong>Comments:</strong>
+  <%= @campaign.comments %>
+</p>
+
+<%= link_to 'Edit', edit_campaign_path(@campaign) %> |
+<%= link_to 'Back', campaigns_path %>

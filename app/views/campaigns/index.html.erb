@@ -1,0 +1,36 @@
+<h2 align="center">Campaigns</h2>
+<div class="table-responsive">          
+  <table class="table table-bordered">
+    <thead>
+      <tr class="info">
+        <th>#</th>
+        <th>Artist</th>
+      <th>Assigned to</th>
+      <th>Promoted by</th>
+      <th>Target plays</th>
+      <th>Status</th>
+      <th>Plays</th>
+      <th>Likes</th>
+      <th>Reposts</th>
+      <th>Comments</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @campaigns.each_with_index do |campaign, index| %>
+      <tr>
+        <td><%= index + 1 %></td>
+        <td><%#= campaign.artist %><%= link_to campaign.artist, campaign.artist %></td>
+        <%#= campaign.assigned_to %>
+        <td><%= User.find(campaign.assigned_to).username %></td>
+        <td><%= campaign.promoted_by %></td>
+        <td><%= campaign.target_plays %></td>
+        <td><%= campaign.status %></td>
+        <td><%= campaign.plays %></td>
+        <td><%= campaign.likes %></td>
+        <td><%= campaign.reposts %></td>
+        <td><%= campaign.comments %>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>

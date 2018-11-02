@@ -1,0 +1,27 @@
+<h2 align="center">Support Lists</h2>
+<div class="table-responsive">          
+  <table class="table datatable table-bordered">
+    <thead>
+      <tr class="info">
+        <th>#</th>
+        <th>Account Name</th>
+        <th>Of Followers</th>
+				<th>Date Supported</th>
+        <th>Period of Repost</th>
+        <th>Contact Name</th>
+      </tr>
+    </thead>
+    <tbody>
+	    <% campaign.support_lists.each_with_index do |support_list, index| %>
+	      <tr>
+	        <td><%= index + 1 %></td>
+	        <td><%= support_list.try(:account_name) %></td>
+	        <td><%= support_list.try(:of_followers) %></td>
+	        <td><%= support_list.try(:date_supported) %></td>
+	        <td><%= support_list.try(:period_of_repost) %></td>
+	        <td><%= support_list.try(:contact_name) %></td>
+	      </tr>
+	    <% end %>
+    </tbody>
+  </table>
+</div>
