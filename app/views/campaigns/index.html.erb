@@ -13,6 +13,7 @@
       <th>Likes</th>
       <th>Reposts</th>
       <th>Comments</th>
+      <th>Details</th>
       </tr>
     </thead>
     <tbody>
@@ -29,6 +30,7 @@
         <td><%= campaign.likes %></td>
         <td><%= campaign.reposts %></td>
         <td><%= campaign.comments %>
+          <td><%= link_to 'Show',campaign, class: "btn btn-info" %></td>
       </tr>
     <% end %>
     </tbody>

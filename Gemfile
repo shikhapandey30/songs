@@ -39,6 +39,7 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
+  gem 'thin'
 end
 
 group :development do
@@ -61,3 +62,7 @@ gem "nokogiri"
 gem "pry"
 gem 'bootstrap-datepicker-rails'
 gem 'jquery-datatables-rails', '~> 3.4.0'
+gem 'omniauth-facebook', '~> 4.0'
+gem 'omniauth-linkedin'
+gem 'omniauth-twitter'
+gem 'omniauth-instagram'

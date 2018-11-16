@@ -1,49 +1,61 @@
-<p id="notice"><%= notice %></p>
+<table class="table datatable table-bordered">
+  <thead>
+    <tr class="info">
+      <th>Artist</th>
+      <th>Assigned to</th>
+      <th>Promoted by</th>
+      <th>Target plays</th>
+      <th>Status</th>
+      <th>Plays</th>
+      <th>Likes</th>
+      <th>Reposts</th>
+      <th>Comments</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><%= @campaign.artist %></td>
+        <td><%= @campaign.assigned_to %></td>
+        <td><%= @campaign.promoted_by %></td>
+        <td><%= @campaign.target_plays %></td>
+        <td><%= @campaign.status %></td>
+        <td><%= @campaign.plays %></td>
+        <td> <%= @campaign.likes %></td>
+        <td><%= @campaign.reposts %></td>
+        <td><%= @campaign.comments %></td>
+      </tr>
+  </tbody>
+</table>
+</br>
 
-<p>
-  <strong>Artist:</strong>
-  <%= @campaign.artist %>
-</p>
-
-<p>
-  <strong>Assigned to:</strong>
-  <%= @campaign.assigned_to %>
-</p>
-
-<p>
-  <strong>Promoted by:</strong>
-  <%= @campaign.promoted_by %>
-</p>
-
-<p>
-  <strong>Target plays:</strong>
-  <%= @campaign.target_plays %>
-</p>
-
-<p>
-  <strong>Status:</strong>
-  <%= @campaign.status %>
-</p>
-
-<p>
-  <strong>Plays:</strong>
-  <%= @campaign.plays %>
-</p>
-
-<p>
-  <strong>Likes:</strong>
-  <%= @campaign.likes %>
-</p>
-
-<p>
-  <strong>Reposts:</strong>
-  <%= @campaign.reposts %>
-</p>
-
-<p>
-  <strong>Comments:</strong>
-  <%= @campaign.comments %>
-</p>
-
-<%= link_to 'Edit', edit_campaign_path(@campaign) %> |
-<%= link_to 'Back', campaigns_path %>
+<%#= link_to 'Edit', edit_campaign_path(@campaign) %> 
+<h2 align="center">Support Lists</h2>
+<div class="table-responsive">          
+  <table class="table datatable table-bordered">
+    <thead>
+      <tr class="info">
+        <th>#</th>
+        <th>Account Name</th>
+        <th>Of Followers</th>
+        <th>Date Supported</th>
+        <th>Period of Repost</th>
+        <th>Contact Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @campaign.support_lists.each_with_index do |support_list, index| %>
+        <tr>
+          <td><%= index + 1 %></td>
+          <td><%= support_list.try(:account_name) %></td>
+          <td><%= support_list.try(:of_followers) %></td>
+          <td><%= support_list.try(:date_supported) %></td>
+          <td><%= support_list.try(:period_of_repost) %></td>
+          <td><%= support_list.try(:contact_name) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<h6 align="center">
+  <%= link_to 'Back', campaigns_path, class: "btn btn-success" %>
+</h6>

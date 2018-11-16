@@ -19,5 +19,7 @@ Rails.application.routes.draw do
 	end
 	 get 'users/change' => "users#change"
 	 post 'user/change'
+   match '/auth/:provider/callback', :to => 'sessions#create', via: [:get, :post]
+   match '/auth/failure', :to => 'sessions#failure', via: [:get, :post]
    #get 'payments/index'=> "payments#index"
 end

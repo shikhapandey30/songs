@@ -30,7 +30,7 @@ class SongsController < InheritedResources::Base
   	@plays_count = data.search("meta[property='soundcloud:play_count']")[0].attributes["content"].value
   	@likes_count = data.search("meta[property='soundcloud:like_count']")[0].attributes["content"].value
     @reposts_count = data.to_s.split("reposts_count")[2].split(":")[1].split(",")[0] rescue nil
-	end
+  end
 	
 
   private

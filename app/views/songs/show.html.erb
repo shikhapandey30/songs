@@ -1,27 +1,24 @@
 <p id="notice"><%= notice %></p>
-
-<p>
-  <strong>User:</strong>
-  <%= @song.user_id %>
-</p>
-
-<p>
-  <strong>Url:</strong>
-  <%= link_to @song.url, @song.url %>
-</p>
-<p>
-  <strong>Plays:</strong>
-<%= @plays_count %>
-</p>
-<p>
-  <strong>Likes:</strong>
-<%= @likes_count %>
-</p>
-
-<p>
-  <strong>Reposts:</strong>
-<%= @reposts_count %>
-</p>
+<table class="table datatable table-bordered">
+  <thead>
+    <tr class="info">
+      <th>User</th>
+      <th>Url</th>
+      <th>Plays</th>
+      <th>Likes</th>
+      <th>Reposts</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td><%= @song.user_id %></td>
+        <td><%= link_to @song.url, @song.url %></td>
+        <td><%= @plays_count %></td>
+        <td><%= @likes_count %></td>
+        <td><%= @reposts_count %></td>
+      </tr>
+  </tbody>
+</table>
+</br>
 
 <%#= link_to 'Edit', edit_song_path(@song) %> 
-<%= link_to 'Back', songs_path %>
